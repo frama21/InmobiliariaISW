@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<clay-model clay-version="2.0.1">
+<database-model author="" begin-script="" end-script="" id="2f483b35:1425258b28a:-7fff" name="practica4" sql-dialect-id="jp.azzurri.clay.dialect.HSQLDB_1_7_0_Dialect" version="1.0">
+<schema-list>
+<schema id="2f483b35:1425258b28a:-7ffc" name="DEFAULT_SCHEMA">
+<table-list>
+<table id="2f483b35:1425258b28a:-7ffe" name="INMUEBLE">
+<column-list>
+<column auto-increment="false" column-size="10" decimal-digits="0" default-value="" id="2f483b35:1425258b28a:-7ff9" mandatory="true" name="COD_ID">
+<data-type name="CHAR" selected-variant-pattern="CHAR(%n)"/>
+</column>
+<column auto-increment="false" column-size="20" decimal-digits="0" default-value="" id="2f483b35:1425258b28a:-7ff6" mandatory="false" name="CALLE">
+<data-type name="CHAR" selected-variant-pattern="CHAR(%n)"/>
+</column>
+<column auto-increment="false" column-size="20" decimal-digits="0" default-value="" id="2f483b35:1425258b28a:-7ff5" mandatory="false" name="LOCALIDAD">
+<data-type name="CHAR" selected-variant-pattern="CHAR(%n)"/>
+</column>
+<column auto-increment="false" column-size="20" decimal-digits="0" default-value="" id="2f483b35:1425258b28a:-7ff4" mandatory="false" name="FECHA_ALTA">
+<data-type name="CHAR" selected-variant-pattern="CHAR(%n)"/>
+</column>
+<column auto-increment="false" column-size="10" decimal-digits="0" default-value="" id="2f483b35:1425258b28a:-7ff3" mandatory="false" name="SUPERFICIE_TOTAL">
+<data-type name="CHAR" selected-variant-pattern="CHAR(%n)"/>
+</column>
+<column auto-increment="false" column-size="1" decimal-digits="0" default-value="" id="2f483b35:1425258b28a:-7ff2" mandatory="false" name="VENTA_ALQUILER">
+<data-type name="CHAR" selected-variant-pattern="CHAR(%n)"/>
+</column>
+<column auto-increment="false" column-size="10" decimal-digits="0" default-value="" id="2a406a55:142be104882:-7e7c" mandatory="true" name="ASESOR">
+<data-type name="CHAR" selected-variant-pattern="CHAR(%n)"/>
+</column>
+<column auto-increment="false" column-size="10" decimal-digits="0" default-value="" id="2a406a55:142be104882:-7e3b" mandatory="true" name="CLIENTE">
+<data-type name="CHAR" selected-variant-pattern="CHAR(%n)"/>
+</column>
+</column-list>
+<primary-key id="2f483b35:1425258b28a:-7ffd" name="PK_INMUEBLE">
+<primary-key-column name="COD_ID"/>
+</primary-key>
+<foreign-key-list>
+<foreign-key id="2a406a55:142be104882:-7e7e" name="FK_INMUEBLE_1" on-delete="UNSPECIFIED" on-update="UNSPECIFIED" referenced-key="PK_ASESOR" referenced-table="ASESOR" referenced-table-schema="DEFAULT_SCHEMA" source-entity-role="" source-multiplicity="0..*" source-relationship-type="" target-entity-role="" target-multiplicity="1" target-relationship-type="">
+<foreign-key-column column-name="ASESOR" referenced-key-column-name="CODIGO_EMPLEADO"/>
+</foreign-key>
+<foreign-key id="2a406a55:142be104882:-7e3d" name="FK_INMUEBLE_2" on-delete="UNSPECIFIED" on-update="UNSPECIFIED" referenced-key="PK_CLIENTE" referenced-table="CLIENTE" referenced-table-schema="DEFAULT_SCHEMA" source-entity-role="" source-multiplicity="0..*" source-relationship-type="" target-entity-role="" target-multiplicity="1" target-relationship-type="">
+<foreign-key-column column-name="CLIENTE" referenced-key-column-name="NIF_CLIENTE"/>
+</foreign-key>
+</foreign-key-list>
+</table>
+<table id="2f483b35:1425258b28a:-7ff1" name="PISO">
+<column-list>
+<column auto-increment="false" column-size="10" decimal-digits="0" default-value="" id="2f483b35:1425258b28a:-7fed" mandatory="true" name="COD_ID">
+<data-type name="CHAR" selected-variant-pattern="CHAR(%n)"/>
+</column>
+<column auto-increment="false" column-size="10" decimal-digits="0" default-value="" id="2f483b35:1425258b28a:-7fec" mandatory="false" name="NUM_HABITACIONES">
+<data-type name="CHAR" selected-variant-pattern="CHAR(%n)"/>
+</column>
+</column-list>
+<primary-key id="2f483b35:1425258b28a:-7ff0" name="PK_PISO">
+<primary-key-column name="COD_ID"/>
+</primary-key>
+<foreign-key-list>
+<foreign-key id="2f483b35:1425258b28a:-7fd6" name="FK_PISO_1" on-delete="UNSPECIFIED" on-update="UNSPECIFIED" referenced-key="PK_INMUEBLE" referenced-table="INMUEBLE" referenced-table-schema="DEFAULT_SCHEMA" source-entity-role="" source-multiplicity="0..*" source-relationship-type="" target-entity-role="" target-multiplicity="1" target-relationship-type="">
+<foreign-key-column column-name="COD_ID" referenced-key-column-name="COD_ID"/>
+</foreign-key>
+</foreign-key-list>
+</table>
+<table id="55b20991:1429a53d208:-7ffc" name="NAVEINDUSTRIAL">
+<column-list>
+<column auto-increment="false" column-size="10" decimal-digits="0" default-value="" id="55b20991:1429a53d208:-7ff8" mandatory="true" name="COD_ID">
+<data-type name="CHAR" selected-variant-pattern="CHAR(%n)"/>
+</column>
+<column auto-increment="false" column-size="10" decimal-digits="0" default-value="" id="55b20991:1429a53d208:-7ff7" mandatory="false" name="NUM_PUERTAS">
+<data-type name="CHAR" selected-variant-pattern="CHAR(%n)"/>
+</column>
+<column auto-increment="false" column-size="10" decimal-digits="0" default-value="" id="55b20991:1429a53d208:-7ff6" mandatory="false" name="CALIFICACION">
+<data-type name="CHAR" selected-variant-pattern="CHAR(%n)"/>
+</column>
+</column-list>
+<primary-key id="55b20991:1429a53d208:-7ffb" name="PK_NAVEINDUSTRIAL">
+<primary-key-column name="COD_ID"/>
+</primary-key>
+<foreign-key-list>
+<foreign-key id="55b20991:1429a53d208:-7fe0" name="FK_NAVEINDUSTRIAL_1" on-delete="UNSPECIFIED" on-update="UNSPECIFIED" referenced-key="PK_INMUEBLE" referenced-table="INMUEBLE" referenced-table-schema="DEFAULT_SCHEMA" source-entity-role="" source-multiplicity="0..*" source-relationship-type="" target-entity-role="" target-multiplicity="1" target-relationship-type="">
+<foreign-key-column column-name="COD_ID" referenced-key-column-name="COD_ID"/>
+</foreign-key>
+</foreign-key-list>
+</table>
+<table id="55b20991:1429a53d208:-7fdb" name="CLIENTE">
+<column-list>
+<column auto-increment="false" column-size="10" decimal-digits="0" default-value="" id="55b20991:1429a53d208:-7fd7" mandatory="true" name="NIF_CLIENTE">
+<data-type name="CHAR" selected-variant-pattern="CHAR(%n)"/>
+</column>
+<column auto-increment="false" column-size="10" decimal-digits="0" default-value="" id="55b20991:1429a53d208:-7fd6" mandatory="false" name="NOMBRE">
+<data-type name="CHAR" selected-variant-pattern="CHAR(%n)"/>
+</column>
+<column auto-increment="false" column-size="10" decimal-digits="0" default-value="" id="55b20991:1429a53d208:-7fd5" mandatory="false" name="APELLIDOS">
+<data-type name="CHAR" selected-variant-pattern="CHAR(%n)"/>
+</column>
+</column-list>
+<primary-key id="55b20991:1429a53d208:-7fda" name="PK_CLIENTE">
+<primary-key-column name="NIF_CLIENTE"/>
+</primary-key>
+</table>
+<table id="55b20991:1429a53d208:-7fd4" name="ASESOR">
+<column-list>
+<column auto-increment="false" column-size="10" decimal-digits="0" default-value="" id="55b20991:1429a53d208:-7fd0" mandatory="true" name="CODIGO_EMPLEADO">
+<data-type name="CHAR" selected-variant-pattern="CHAR(%n)"/>
+</column>
+<column auto-increment="false" column-size="10" decimal-digits="0" default-value="" id="55b20991:1429a53d208:-7fcf" mandatory="false" name="NOMBRE">
+<data-type name="CHAR" selected-variant-pattern="CHAR(%n)"/>
+</column>
+</column-list>
+<primary-key id="55b20991:1429a53d208:-7fd3" name="PK_ASESOR">
+<primary-key-column name="CODIGO_EMPLEADO"/>
+</primary-key>
+</table>
+<table id="6a4c7e24:143062a722d:-7fe6" name="Transaccion">
+<column-list>
+<column auto-increment="false" column-size="10" decimal-digits="0" default-value="" id="6a4c7e24:143062a722d:-7fe2" mandatory="true" name="id_transaccion">
+<data-type name="CHAR" selected-variant-pattern="CHAR(%n)"/>
+</column>
+<column auto-increment="false" column-size="10" decimal-digits="0" default-value="" id="6a4c7e24:143062a722d:-7fe1" mandatory="false" name="precio_final">
+<data-type name="CHAR" selected-variant-pattern="CHAR(%n)"/>
+</column>
+<column auto-increment="false" column-size="10" decimal-digits="0" default-value="" id="6a4c7e24:143062a722d:-7fe0" mandatory="false" name="fecha">
+<data-type name="CHAR" selected-variant-pattern="CHAR(%n)"/>
+</column>
+<column auto-increment="false" column-size="10" decimal-digits="0" default-value="" id="6a4c7e24:143062a722d:-7fdf" mandatory="false" name="compra_o_alquiler">
+<data-type name="CHAR" selected-variant-pattern="CHAR(%n)"/>
+</column>
+<column auto-increment="false" column-size="10" decimal-digits="0" default-value="" id="6a4c7e24:143062a722d:-7ed1" mandatory="false" name="oferta">
+<data-type name="CHAR" selected-variant-pattern="CHAR(%n)"/>
+</column>
+</column-list>
+<primary-key id="6a4c7e24:143062a722d:-7fe5" name="PK_TRANSACCION">
+<primary-key-column name="id_transaccion"/>
+</primary-key>
+<foreign-key-list>
+<foreign-key id="6a4c7e24:143062a722d:-7eac" name="FK_Transaccion_1" on-delete="UNSPECIFIED" on-update="UNSPECIFIED" referenced-key="PK_OFERTA" referenced-table="Oferta" referenced-table-schema="DEFAULT_SCHEMA" source-entity-role="" source-multiplicity="0..1" source-relationship-type="" target-entity-role="" target-multiplicity="1" target-relationship-type="">
+<foreign-key-column column-name="oferta" referenced-key-column-name="id_oferta"/>
+</foreign-key>
+</foreign-key-list>
+</table>
+<table id="6a4c7e24:143062a722d:-7fde" name="Oferta">
+<column-list>
+<column auto-increment="false" column-size="10" decimal-digits="0" default-value="" id="6a4c7e24:143062a722d:-7fda" mandatory="true" name="id_oferta">
+<data-type name="CHAR" selected-variant-pattern="CHAR(%n)"/>
+</column>
+<column auto-increment="false" column-size="10" decimal-digits="0" default-value="" id="6a4c7e24:143062a722d:-7fd9" mandatory="false" name="precio">
+<data-type name="CHAR" selected-variant-pattern="CHAR(%n)"/>
+</column>
+<column auto-increment="false" column-size="10" decimal-digits="0" default-value="" id="6a4c7e24:143062a722d:-7fd8" mandatory="false" name="fecha">
+<data-type name="CHAR" selected-variant-pattern="CHAR(%n)"/>
+</column>
+<column auto-increment="false" column-size="10" decimal-digits="0" default-value="" id="6a4c7e24:143062a722d:-7fcb" mandatory="false" name="visita">
+<data-type name="CHAR" selected-variant-pattern="CHAR(%n)"/>
+</column>
+</column-list>
+<primary-key id="6a4c7e24:143062a722d:-7fdd" name="PK_OFERTA">
+<primary-key-column name="id_oferta"/>
+</primary-key>
+<foreign-key-list>
+<foreign-key id="6a4c7e24:143062a722d:-7f00" name="FK_Oferta_1" on-delete="UNSPECIFIED" on-update="UNSPECIFIED" referenced-key="PK_VISITA" referenced-table="Visita" referenced-table-schema="DEFAULT_SCHEMA" source-entity-role="" source-multiplicity="0..1" source-relationship-type="" target-entity-role="" target-multiplicity="1" target-relationship-type="">
+<foreign-key-column column-name="visita" referenced-key-column-name="id_visita"/>
+</foreign-key>
+</foreign-key-list>
+</table>
+<table id="6a4c7e24:143062a722d:-7fd6" name="Visita">
+<column-list>
+<column auto-increment="false" column-size="10" decimal-digits="0" default-value="" id="6a4c7e24:143062a722d:-7fd2" mandatory="true" name="id_visita">
+<data-type name="CHAR" selected-variant-pattern="CHAR(%n)"/>
+</column>
+<column auto-increment="false" column-size="10" decimal-digits="0" default-value="" id="6a4c7e24:143062a722d:-7fd1" mandatory="false" name="fecha">
+<data-type name="CHAR" selected-variant-pattern="CHAR(%n)"/>
+</column>
+<column auto-increment="false" column-size="10" decimal-digits="0" default-value="" id="6a4c7e24:143062a722d:-7fd0" mandatory="false" name="inmueble">
+<data-type name="CHAR" selected-variant-pattern="CHAR(%n)"/>
+</column>
+<column auto-increment="false" column-size="10" decimal-digits="0" default-value="" id="6a4c7e24:143062a722d:-7fcf" mandatory="false" name="cliente">
+<data-type name="CHAR" selected-variant-pattern="CHAR(%n)"/>
+</column>
+<column auto-increment="false" column-size="10" decimal-digits="0" default-value="" id="6a4c7e24:143062a722d:-7fce" mandatory="false" name="asesor">
+<data-type name="CHAR" selected-variant-pattern="CHAR(%n)"/>
+</column>
+</column-list>
+<primary-key id="6a4c7e24:143062a722d:-7fd5" name="PK_VISITA">
+<primary-key-column name="id_visita"/>
+</primary-key>
+<foreign-key-list>
+<foreign-key id="6a4c7e24:143062a722d:-7f95" name="FK_Visita_1" on-delete="UNSPECIFIED" on-update="UNSPECIFIED" referenced-key="PK_INMUEBLE" referenced-table="INMUEBLE" referenced-table-schema="DEFAULT_SCHEMA" source-entity-role="" source-multiplicity="0..*" source-relationship-type="" target-entity-role="" target-multiplicity="1" target-relationship-type="">
+<foreign-key-column column-name="inmueble" referenced-key-column-name="COD_ID"/>
+</foreign-key>
+<foreign-key id="6a4c7e24:143062a722d:-7f4d" name="FK_Visita_2" on-delete="UNSPECIFIED" on-update="UNSPECIFIED" referenced-key="PK_CLIENTE" referenced-table="CLIENTE" referenced-table-schema="DEFAULT_SCHEMA" source-entity-role="" source-multiplicity="0..*" source-relationship-type="" target-entity-role="" target-multiplicity="1" target-relationship-type="">
+<foreign-key-column column-name="cliente" referenced-key-column-name="NIF_CLIENTE"/>
+</foreign-key>
+<foreign-key id="6a4c7e24:143062a722d:-7f34" name="FK_Visita_3" on-delete="UNSPECIFIED" on-update="UNSPECIFIED" referenced-key="PK_ASESOR" referenced-table="ASESOR" referenced-table-schema="DEFAULT_SCHEMA" source-entity-role="" source-multiplicity="0..*" source-relationship-type="" target-entity-role="" target-multiplicity="1" target-relationship-type="">
+<foreign-key-column column-name="asesor" referenced-key-column-name="CODIGO_EMPLEADO"/>
+</foreign-key>
+</foreign-key-list>
+</table>
+</table-list>
+</schema>
+</schema-list>
+</database-model>
+<diagram>
+<table-figure height="115" refid="2f483b35:1425258b28a:-7ffe" width="156" x="161" y="26"/>
+<table-figure height="47" refid="2f483b35:1425258b28a:-7ff1" width="155" x="10" y="350"/>
+<table-figure refid="55b20991:1429a53d208:-7ffc" x="208" y="352"/>
+<table-figure refid="55b20991:1429a53d208:-7fdb" x="365" y="302"/>
+<table-figure refid="55b20991:1429a53d208:-7fd4" x="553" y="24"/>
+<table-figure height="74" refid="6a4c7e24:143062a722d:-7fe6" width="126" x="541" y="375"/>
+<table-figure height="62" refid="6a4c7e24:143062a722d:-7fde" width="106" x="596" y="258"/>
+<table-figure refid="6a4c7e24:143062a722d:-7fd6" x="560" y="128"/>
+</diagram>
+</clay-model>

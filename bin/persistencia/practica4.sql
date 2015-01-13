@@ -1,0 +1,91 @@
+DROP TABLE PISO IF EXISTS;
+DROP TABLE Transaccion IF EXISTS;
+DROP TABLE NAVEINDUSTRIAL IF EXISTS;
+DROP TABLE Oferta IF EXISTS;
+DROP TABLE Visita IF EXISTS;
+DROP TABLE INMUEBLE IF EXISTS;
+DROP TABLE ASESOR IF EXISTS;
+DROP TABLE CLIENTE IF EXISTS;
+
+CREATE TABLE CLIENTE (
+       NIF_CLIENTE CHAR(10) NOT NULL
+     , NOMBRE CHAR(10)
+     , APELLIDOS CHAR(10)
+     , PRIMARY KEY (NIF_CLIENTE)
+);
+
+CREATE TABLE ASESOR (
+       CODIGO_EMPLEADO CHAR(10) NOT NULL
+     , NOMBRE CHAR(10)
+     , PRIMARY KEY (CODIGO_EMPLEADO)
+);
+
+CREATE TABLE INMUEBLE (
+       COD_ID CHAR(10) NOT NULL
+     , CALLE CHAR(20)
+     , LOCALIDAD CHAR(20)
+     , FECHA_ALTA CHAR(20)
+     , SUPERFICIE_TOTAL CHAR(10)
+     , VENTA_ALQUILER CHAR(1)
+     , ASESOR CHAR(10) NOT NULL
+     , CLIENTE CHAR(10) NOT NULL
+     , PRIMARY KEY (COD_ID)
+     , CONSTRAINT FK_INMUEBLE_1 FOREIGN KEY (ASESOR)
+                  REFERENCES ASESOR (CODIGO_EMPLEADO)
+     , CONSTRAINT FK_INMUEBLE_2 FOREIGN KEY (CLIENTE)
+                  REFERENCES CLIENTE (NIF_CLIENTE)
+);
+
+CREATE TABLE Visita (
+       id_visita CHAR(10) NOT NULL
+     , fecha CHAR(10)
+     , inmueble CHAR(10)
+     , cliente CHAR(10)
+     , asesor CHAR(10)
+     , PRIMARY KEY (id_visita)
+     , CONSTRAINT FK_Visita_1 FOREIGN KEY (inmueble)
+                  REFERENCES INMUEBLE (COD_ID)
+     , CONSTRAINT FK_Visita_2 FOREIGN KEY (cliente)
+                  REFERENCES CLIENTE (NIF_CLIENTE)
+     , CONSTRAINT FK_Visita_3 FOREIGN KEY (asesor)
+                  REFERENCES ASESOR (CODIGO_EMPLEADO)
+);
+
+CREATE TABLE Oferta (
+       id_oferta CHAR(10) NOT NULL
+     , precio CHAR(10)
+     , fecha CHAR(10)
+     , visita CHAR(10)
+     , PRIMARY KEY (id_oferta)
+     , CONSTRAINT FK_Oferta_1 FOREIGN KEY (visita)
+                  REFERENCES Visita (id_visita)
+);
+
+CREATE TABLE NAVEINDUSTRIAL (
+       COD_ID CHAR(10) NOT NULL
+     , NUM_PUERTAS CHAR(10)
+     , CALIFICACION CHAR(10)
+     , PRIMARY KEY (COD_ID)
+     , CONSTRAINT FK_NAVEINDUSTRIAL_1 FOREIGN KEY (COD_ID)
+                  REFERENCES INMUEBLE (COD_ID)
+);
+
+CREATE TABLE Transaccion (
+       id_transaccion CHAR(10) NOT NULL
+     , precio_final CHAR(10)
+     , fecha CHAR(10)
+     , compra_o_alquiler CHAR(10)
+     , oferta CHAR(10)
+     , PRIMARY KEY (id_transaccion)
+     , CONSTRAINT FK_Transaccion_1 FOREIGN KEY (oferta)
+                  REFERENCES Oferta (id_oferta)
+);
+
+CREATE TABLE PISO (
+       COD_ID CHAR(10) NOT NULL
+     , NUM_HABITACIONES CHAR(10)
+     , PRIMARY KEY (COD_ID)
+     , CONSTRAINT FK_PISO_1 FOREIGN KEY (COD_ID)
+                  REFERENCES INMUEBLE (COD_ID)
+);
+
